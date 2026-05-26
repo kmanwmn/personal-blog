@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="themes.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">📝 我的博客</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="write">写文章</a></li>
+                <li><a href="#" class="nav-link" data-page="archives">归档</a></li>
+                <li><a href="#" class="nav-link" data-page="awards">竞赛经历</a></li>
+                <li><a href="#" class="nav-link" data-page="projects">项目经历</a></li>
+                <li><a href="#" class="nav-link" data-page="work">工作经历</a></li>
+                <li><a href="#" class="nav-link" data-page="about">关于</a></li>
+                <li><a href="#" class="nav-link" data-page="settings">设置</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        <!-- ========== 首页 ========== -->
+        <section id="page-home" class="page active">
+            <div class="hero">
+                <div class="hero-inner">
+                    <div class="avatar-wrapper">
+                        <img id="heroAvatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4" alt="头像" class="avatar">
+                    </div>
+                    <h1 class="hero-title">你好，我是 <span id="heroName" class="text-accent">小明</span></h1>
+                    <p id="heroSubtitle" class="hero-subtitle">一名热爱技术 &amp; 写作的软件开发者</p>
+                    <p id="heroDesc" class="hero-desc">用文字记录成长，用代码改变世界</p>
+                    <div class="hero-social">
+                        <a href="#" class="social-icon" title="GitHub">🐱</a>
+                        <a href="#" class="social-icon" title="知乎">💡</a>
+                        <a href="#" class="social-icon" title="微博">📢</a>
+                        <a href="#" class="social-icon" title="邮箱">✉️</a>
+                    </div>
+                </div>
+            </div>
+            <div class="posts-section">
+                <h2 class="section-title"><span class="title-deco"></span> 最新文章</h2>
+                <div id="posts-list" class="posts-grid"></div>
+            </div>
+        </section>
+
+        <!-- ========== 归档页 ========== -->
+        <section id="page-archives" class="page">
+            <h2 class="section-title"><span class="title-deco"></span> 文章归档</h2>
+            <div id="archives-content" class="archives-list"></div>
+        </section>
+
+        <!-- ========== 竞赛经历页 ========== -->
+        <section id="page-awards" class="page">
+            <h2 class="section-title"><span class="title-deco"></span> 🏆 竞赛经历</h2>
+            <div class="awards-controls" style="margin-bottom:20px">
+                <button class="btn btn-outline" id="awardsToggleEdit">✏️ 编辑</button>
+            </div>
+            <div id="awards-content" class="awards-list"></div>
+            <div id="awards-editor" class="profile-editor" style="display:none">
+                <h3 class="profile-editor-title">管理竞赛经历</h3>
+                <div id="awards-edit-list"></div>
+                <button class="btn btn-primary" id="awardsAddItem" style="margin-top:12px">➕ 添加一条竞赛经历</button>
+                <button class="btn btn-outline save-profile-btn" data-type="awards" style="margin-top:12px;margin-left:8px">💾 保存</button>
+            </div>
+        </section>
+
+        <!-- ========== 项目经历页 ========== -->
+        <section id="page-projects" class="page">
+            <h2 class="section-title"><span class="title-deco"></span> 💻 项目经历</h2>
+            <div class="projects-controls" style="margin-bottom:20px">
+                <button class="btn btn-outline" id="projectsToggleEdit">✏️ 编辑</button>
+            </div>
+            <div id="projects-content" class="projects-list"></div>
+            <div id="projects-editor" class="profile-editor" style="display:none">
+                <h3 class="profile-editor-title">管理项目经历</h3>
+                <div id="projects-edit-list"></div>
+                <button class="btn btn-primary" id="projectsAddItem" style="margin-top:12px">➕ 添加一个项目</button>
+                <button class="btn btn-outline save-profile-btn" data-type="projects" style="margin-top:12px;margin-left:8px">💾 保存</button>
+            </div>
+        </section>
+
+        <!-- ========== 工作经历页 ========== -->
+        <section id="page-work" class="page">
+            <h2 class="section-title"><span class="title-deco"></span> 💼 工作经历</h2>
+            <div class="work-controls" style="margin-bottom:20px">
+                <button class="btn btn-outline" id="workToggleEdit">✏️ 编辑</button>
+            </div>
+            <div id="work-content" class="work-list"></div>
+            <div id="work-editor" class="profile-editor" style="display:none">
+                <h3 class="profile-editor-title">管理工作经历</h3>
+                <div id="work-edit-list"></div>
+                <button class="btn btn-primary" id="workAddItem" style="margin-top:12px">➕ 添加一条工作经历</button>
+                <button class="btn btn-outline save-profile-btn" data-type="work" style="margin-top:12px;margin-left:8px">💾 保存</button>
+            </div>
+        </section>
+
+        <!-- ========== 设置页 ========== -->
+        <section id="page-settings" class="page">
+            <h2 class="section-title"><span class="title-deco"></span> ⚙️ 设置</h2>
+
+            <!-- Theme selector -->
+            <div class="settings-card" style="margin-bottom:24px">
+                <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:16px">🎨 主题样式</h3>
+                <p class="settings-desc">选择你喜欢的博客主题风格。</p>
+                <div class="theme-selector" id="themeSelector">
+                    <div class="theme-option active" data-theme="default">
+                        <div class="theme-preview theme-preview-default"></div>
+                        <span class="theme-label">默认</span>
+                    </div>
+                    <div class="theme-option" data-theme="dark">
+                        <div class="theme-preview theme-preview-dark"></div>
+                        <span class="theme-label">暗黑</span>
+                    </div>
+                    <div class="theme-option" data-theme="forest">
+                        <div class="theme-preview theme-preview-forest"></div>
+                        <span class="theme-label">森林</span>
+                    </div>
+                    <div class="theme-option" data-theme="sunset">
+                        <div class="theme-preview theme-preview-sunset"></div>
+                        <span class="theme-label">日落</span>
+                    </div>
+                    <div class="theme-option" data-theme="ocean">
+                        <div class="theme-preview theme-preview-ocean"></div>
+                        <span class="theme-label">海洋</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page visibility settings -->
+            <div class="settings-card">
+                <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:16px">📄 页面显示</h3>
+                <p class="settings-desc">选择你想要在导航栏中显示的页面，不显示的页面将被隐藏。</p>
+                <div id="settings-page-list" class="settings-list"></div>
+                <button class="btn btn-primary" id="settingsSaveBtn">💾 保存设置</button>
+            </div>
+        </section>
+
+        <!-- ========== 写文章页 ========== -->
+        <section id="page-write" class="page">
+            <h2 class="section-title"><span class="title-deco"></span> 写文章</h2>
+            <div class="editor-container">
+                <div class="editor-toolbar">
+                    <div class="editor-tabs">
+                        <button class="editor-tab active" data-tab="editor">编辑</button>
+                        <button class="editor-tab" data-tab="preview">预览</button>
+                    </div>
+                    <div class="editor-actions">
+                        <button class="btn btn-outline" id="btnClear">清空</button>
+                        <button class="btn btn-primary" id="btnPublish">发布文章</button>
+                    </div>
+                </div>
+                <div class="editor-meta">
+                    <div class="editor-field">
+                        <label for="editTitle">文章标题</label>
+                        <input type="text" id="editTitle" placeholder="输入文章标题..." maxlength="100">
+                    </div>
+                    <div class="editor-field-row">
+                        <div class="editor-field">
+                            <label for="editCategory">分类</label>
+                            <input type="text" id="editCategory" placeholder="如：前端、教程、感悟">
+                        </div>
+                        <div class="editor-field">
+                            <label for="editTags">标签（逗号分隔）</label>
+                            <input type="text" id="editTags" placeholder="如：JavaScript, CSS, Vue">
+                        </div>
+                    </div>
+                </div>
+                <div class="editor-body">
+                    <div class="editor-pane active" id="editorPane">
+                        <textarea id="editContent" class="editor-textarea" placeholder="在这里用 Markdown 写文章...&#10;&#10;支持语法：&#10;# 一级标题&#10;## 二级标题&#10;**粗体** *斜体* ~~删除线~~&#10;- 无序列表&#10;1. 有序列表&#10;- [x] 任务列表&#10;`行内代码`&#10;```语言&#10;代码块&#10;```&#10;> 引用&#10;--- 分割线&#10;[链接](url)&#10;![图片](url)&#10;| 表格 | 列 |"></textarea>
+                    </div>
+                    <div class="editor-pane" id="previewPane">
+                        <div id="editPreview" class="edit-preview">
+                            <div class="preview-placeholder">🖊️ 在编辑器中写点内容，预览会实时显示在这里</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="saved-posts-section">
+                <h2 class="section-title" style="margin-top:48px"><span class="title-deco"></span> 我的文章管理</h2>
+                <div id="saved-posts-list" class="saved-posts-list"></div>
+            </div>
+        </section>
+
+        <!-- ========== 关于页 ========== -->
+        <section id="page-about" class="page">
+            <h2 class="section-title"><span class="title-deco"></span> 关于我</h2>
+            <div class="about-controls" style="margin-bottom:20px">
+                <button class="btn btn-outline" id="aboutToggleEdit">✏️ 编辑</button>
+            </div>
+            <!-- 显示区 -->
+            <div id="about-content" class="about-card"></div>
+            <!-- 编辑区 -->
+            <div id="about-editor" class="profile-editor" style="display:none">
+                <h3 class="profile-editor-title">编辑关于我</h3>
+                <div class="edit-field">
+                    <label>头像 URL</label>
+                    <input type="text" id="aboutEditAvatar" placeholder="头像图片链接">
+                </div>
+                <div class="edit-field">
+                    <label>名称</label>
+                    <input type="text" id="aboutEditName" placeholder="你的名字" maxlength="50">
+                </div>
+                <div class="edit-field">
+                    <label>岗位 / 标语</label>
+                    <input type="text" id="aboutEditTagline" placeholder="如：全栈开发者 / 终身学习者" maxlength="100">
+                </div>
+                <div class="edit-field">
+                    <label>简介（支持 HTML）</label>
+                    <textarea id="aboutEditDesc" rows="4" placeholder="介绍你自己..."></textarea>
+                </div>
+                <div class="edit-field">
+                    <label>技能栈（点击标签删除，下方添加）</label>
+                    <div id="aboutEditSkills" class="skills" style="min-height:36px;border:1px dashed var(--border-color);border-radius:8px;padding:8px;margin-bottom:8px"></div>
+                    <div style="display:flex;gap:8px">
+                        <input type="text" id="aboutSkillInput" placeholder="输入技能名称" style="flex:1">
+                        <button class="btn btn-outline" id="aboutAddSkill">➕ 添加</button>
+                    </div>
+                </div>
+                <h4 style="margin:16px 0 8px;font-size:1rem">📬 联系方式</h4>
+                <div class="edit-field">
+                    <label>邮箱</label>
+                    <input type="text" id="aboutEditEmail" placeholder="your@email.com">
+                </div>
+                <div class="edit-field">
+                    <label>GitHub</label>
+                    <input type="text" id="aboutEditGithub" placeholder="github.com/yourname">
+                </div>
+                <div class="edit-field">
+                    <label>知乎</label>
+                    <input type="text" id="aboutEditZhihu" placeholder="zhihu.com/people/yourname">
+                </div>
+                <button class="btn btn-primary save-profile-btn" data-type="about" style="margin-top:16px">💾 保存</button>
+            </div>
+        </section>
+
+        <!-- ========== 文章详情弹窗 ========== -->
+        <div id="post-modal" class="modal-overlay">
+            <div class="modal-box">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <article id="modal-content" class="post-article"></article>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>&copy; 2024 我的个人博客 · 用 ❤️ 书写</p>
+        </div>
+    </footer>
+
+    <!-- ========== 登录/注册弹窗 ========== -->
+    <div id="auth-modal" class="modal-overlay" style="display:none">
+        <div class="modal-box" style="max-width:400px">
+            <button class="modal-close" id="authModalClose">&times;</button>
+            <div style="padding:20px">
+                <h3 id="authTitle">登录</h3>
+                <div style="margin-top:16px">
+                    <div class="edit-field">
+                        <label>用户名</label>
+                        <input type="text" id="authUsername" placeholder="3-20个字符">
+                    </div>
+                    <div class="edit-field">
+                        <label>密码</label>
+                        <input type="password" id="authPassword" placeholder="至少4个字符">
+                    </div>
+                    <div class="edit-field" id="nicknameField" style="display:none">
+                        <label>昵称</label>
+                        <input type="text" id="authNickname" placeholder="显示名称（选填）">
+                    </div>
+                    <div id="authError" style="color:#e74c3c;margin-bottom:8px;font-size:0.9rem"></div>
+                    <div style="display:flex;gap:8px;margin-top:12px">
+                        <button class="btn btn-primary" id="authSubmit" style="flex:1">登录</button>
+                        <button class="btn btn-outline" id="authToggle" style="flex:1">注册账号</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户状态栏 -->
+    <div id="userStatus" style="position:fixed;bottom:16px;right:16px;z-index:1000;background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:8px 16px;display:flex;align-items:center;gap:8px;font-size:0.85rem;box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+        <span id="userStatusText">🌐 离线模式</span>
+        <button id="userStatusBtn" class="btn btn-outline" style="padding:2px 8px;font-size:0.8rem">登录</button>
+    </div>
+
+    <script src="marked.min.js"></script>
+    <script src="api-client.js"></script>
+    <script src="profile-data.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="online-integration.js"></script>
+</body>
+</html>

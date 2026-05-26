@@ -1,0 +1,253 @@
+/* ============================================
+   Blog Themes
+   Add class="theme-xxx" to <html> element
+   ============================================ */
+
+/* ---------- Dark Theme ---------- */
+html.theme-dark {
+    --primary: #7c9aff;
+    --primary-dark: #6a88e8;
+    --primary-light: #2a2f4e;
+    --bg: #0f1117;
+    --bg-card: #1a1d2e;
+    --text: #e4e6f0;
+    --text-light: #9ca3b8;
+    --text-muted: #6b7280;
+    --border: #2a2d3e;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 36px rgba(124, 154, 255, 0.12);
+}
+
+html.theme-dark .header {
+    background: rgba(15, 17, 23, 0.9);
+    border-bottom-color: var(--border);
+}
+
+html.theme-dark .editor-textarea {
+    background: #0d0f16;
+    color: #c8ccd4;
+}
+
+html.theme-dark .edit-preview .article-body pre,
+html.theme-dark .post-article .article-body pre {
+    background: #0d0f16;
+    color: #c8ccd4;
+}
+
+html.theme-dark .nav-menu {
+    background: rgba(15, 17, 23, 0.98);
+}
+
+html.theme-dark .hamburger span {
+    background: var(--text);
+}
+
+html.theme-dark .edit-field input,
+html.theme-dark .edit-field textarea {
+    background: #0f1117;
+    color: var(--text);
+}
+
+html.theme-dark .modal-box {
+    background: var(--bg-card);
+}
+
+html.theme-dark .modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- Forest Theme ---------- */
+html.theme-forest {
+    --primary: #2d8a4e;
+    --primary-dark: #237a42;
+    --primary-light: #e8f5e9;
+    --bg: #f5faf6;
+    --bg-card: #ffffff;
+    --text: #1a3a2a;
+    --text-light: #4a7a5a;
+    --text-muted: #8aa88a;
+    --border: #c8e0c8;
+    --shadow: 0 4px 20px rgba(45, 138, 78, 0.08);
+    --shadow-hover: 0 8px 36px rgba(45, 138, 78, 0.15);
+}
+
+html.theme-forest .post-card:hover {
+    border-color: var(--primary);
+}
+
+html.theme-forest .hero-title .text-accent {
+    color: var(--primary);
+}
+
+html.theme-forest .award-card-rank {
+    color: #2d8a4e;
+    background: #e8f5e9;
+}
+
+/* ---------- Sunset Theme ---------- */
+html.theme-sunset {
+    --primary: #d97706;
+    --primary-dark: #b45309;
+    --primary-light: #fef3c7;
+    --bg: #fef9ef;
+    --bg-card: #ffffff;
+    --text: #3d2a1a;
+    --text-light: #7a6a4a;
+    --text-muted: #b0a080;
+    --border: #f0e4c8;
+    --shadow: 0 4px 20px rgba(217, 119, 6, 0.08);
+    --shadow-hover: 0 8px 36px rgba(217, 119, 6, 0.15);
+}
+
+html.theme-sunset .post-card:hover {
+    border-color: var(--primary);
+}
+
+html.theme-sunset .hero-title .text-accent {
+    color: var(--primary);
+}
+
+html.theme-sunset .award-card-rank {
+    color: #d97706;
+    background: #fef3c7;
+}
+
+html.theme-sunset .post-article .article-body blockquote {
+    border-left-color: #d97706;
+    background: #fef3c7;
+}
+
+html.theme-sunset .work-card-timeline::before {
+    background: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+html.theme-sunset .work-card-timeline {
+    border-left-color: #fef3c7;
+}
+
+/* ---------- Ocean Theme ---------- */
+html.theme-ocean {
+    --primary: #0891b2;
+    --primary-dark: #0e7490;
+    --primary-light: #ecfeff;
+    --bg: #f4fafb;
+    --bg-card: #ffffff;
+    --text: #164e63;
+    --text-light: #3b7a8a;
+    --text-muted: #7aa8b0;
+    --border: #c8e8f0;
+    --shadow: 0 4px 20px rgba(8, 145, 178, 0.08);
+    --shadow-hover: 0 8px 36px rgba(8, 145, 178, 0.15);
+}
+
+html.theme-ocean .post-card:hover {
+    border-color: var(--primary);
+}
+
+html.theme-ocean .hero-title .text-accent {
+    color: var(--primary);
+}
+
+html.theme-ocean .award-card-rank {
+    color: #0891b2;
+    background: #ecfeff;
+}
+
+html.theme-ocean .post-article .article-body blockquote {
+    border-left-color: #0891b2;
+    background: #ecfeff;
+}
+
+html.theme-ocean .work-card-timeline::before {
+    background: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+html.theme-ocean .work-card-timeline {
+    border-left-color: #ecfeff;
+}
+
+html.theme-ocean .settings-card,
+html.theme-ocean .about-card,
+html.theme-ocean .work-card,
+html.theme-ocean .project-card,
+html.theme-ocean .award-card,
+html.theme-ocean .post-card,
+html.theme-ocean .editor-container {
+    border-color: #c8e8f0;
+}
+
+/* Theme selector styles */
+.theme-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.theme-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg);
+    transition: var(--transition);
+    min-width: 70px;
+}
+
+.theme-option:hover {
+    border-color: var(--primary-light);
+}
+
+.theme-option.active {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.theme-option.active .theme-preview {
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.theme-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+}
+
+.theme-preview-default {
+    background: linear-gradient(135deg, #5b7fff, #4a6ae0);
+}
+
+.theme-preview-dark {
+    background: linear-gradient(135deg, #1a1d2e, #0f1117);
+    border-color: #3a3d4e;
+}
+
+.theme-preview-forest {
+    background: linear-gradient(135deg, #2d8a4e, #237a42);
+}
+
+.theme-preview-sunset {
+    background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+.theme-preview-ocean {
+    background: linear-gradient(135deg, #0891b2, #0e7490);
+}
+
+.theme-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.theme-option.active .theme-label {
+    color: var(--primary);
+    font-weight: 600;
+}
