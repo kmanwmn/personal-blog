@@ -5,7 +5,7 @@
 // 自动检测：本地开发用 127.0.0.1，生产环境用 Cloudflare Tunnel 域名
 const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://127.0.0.1:8080'
-    : 'https://[替换为你的Cloudflare隧道域名]';
+    : 'https://therefore-bind-targeted-hill.trycloudflare.com';
 let currentUser = null;
 
 async function apiRequest(method, path, body) {
